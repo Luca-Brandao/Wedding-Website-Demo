@@ -1,0 +1,16 @@
+node_modules/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.log
+.DS_Store
+.qa/
+.sites-runtime/
+private/
+private-assets/
+*.tsbuildinfo
+client/dist/
