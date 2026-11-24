@@ -73,7 +73,7 @@ export function Navbar() {
         className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-powder/70 bg-white/85 px-4 py-3 shadow-soft backdrop-blur-xl"
       >
         <a href="#home" className="font-display text-2xl font-semibold text-ink">
-          J <span className="text-gold">&</span> B
+          A <span className="text-gold">&</span> T
         </a>
         <div className="hidden items-center gap-1 lg:flex">{navItems}</div>
         <button
