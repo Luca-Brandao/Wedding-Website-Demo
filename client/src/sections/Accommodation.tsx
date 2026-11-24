@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, ExternalLink, Phone, Star } from "lucide-react";
+import { ChevronDown, ExternalLink, Star } from "lucide-react";
 const accommodationImage01 = "placeholder.svg";
 const accommodationImage02 = "placeholder.svg";
 const accommodationImage03 = "placeholder.svg";
@@ -40,7 +40,7 @@ export function Accommodation({ items }: { items: AccommodationType[] }) {
       id="accommodation"
       eyebrow="Nearby Stays"
       title="Accommodation"
-      intro="We've selected a few accommodation options conveniently located near the venue. We recommend that guests seek accommodation within the surrounding area of the venue. As January is a popular travel period, we encourage guests to book as early as possible to avoid disappointment."
+      intro="Fictional accommodation cards demonstrate the layout and responsive controls. No real booking services or contact details are connected."
       className="bg-linen"
     >
       <button
@@ -83,26 +83,15 @@ export function Accommodation({ items }: { items: AccommodationType[] }) {
                       Website <ExternalLink size={16} />
                     </a>
                   ) : null}
-                  <a
-                    href={`tel:${item.phone.replaceAll(" ", "")}`}
-                    className="accommodation-card__button accommodation-card__button--phone"
-                  >
-                    <Phone size={16} /> {item.phone}
-                  </a>
-                  <a
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.name + " Sample City")}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="accommodation-card__button accommodation-card__button--directions"
-                  >
-                    Directions <ExternalLink size={16} />
-                  </a>
+                  <span className="accommodation-card__button accommodation-card__button--directions">
+                    Demonstration only
+                  </span>
                 </div>
               </div>
             </article>
           ))}
           <p className="accommodation-notice">
-            <strong>Please note:</strong> Guests are welcome to choose any accommodation within the surrounding area. The options listed are simply recommendations of some of the closest locations for your convenience.
+            <strong>Please note:</strong> These venues are fictional examples for this portfolio demo.
           </p>
         </div>
       </div>
@@ -111,7 +100,7 @@ export function Accommodation({ items }: { items: AccommodationType[] }) {
         <div className="accommodation-film-strip" aria-label="Engagement photo film strip">
           {accommodationStripImages.map((image, index) => (
             <figure
-              key={image.src}
+              key={`${image.src}-${index}`}
               className={`accommodation-film-strip__item accommodation-film-strip__item--${index + 1}`}
             >
               <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
