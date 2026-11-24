@@ -100,7 +100,7 @@ export default function WeddingApp() {
           <p className="wedding-footer__names">Alex &amp; Taylor</p>
           <p className="wedding-footer__date">15 . 06 . 2030</p>
           <p className="wedding-footer__made">
-            Website made with <span aria-hidden="true">♥</span> by Luca Brandao
+            Website by Luca Brandao
           </p>
           <a
             className="wedding-footer__back-to-start"
