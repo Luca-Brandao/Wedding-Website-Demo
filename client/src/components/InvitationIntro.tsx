@@ -149,8 +149,8 @@ export function InvitationIntro({ onComplete }: InvitationIntroProps) {
               </div>
               <time dateTime="2030-06-15">15 June 2030</time>
               <p className="invitation-card__venue">
-                Sample Garden Venue
-                <span>Sample City</span>
+                Willowmere Garden Estate
+                <span>Rosewood Valley</span>
               </p>
               <button type="button" className="invitation-enter-button" onClick={enterWebsite}>
                - Enter Website -

@@ -7,8 +7,8 @@ A responsive React and TypeScript wedding microsite by Luca Brandao. This saniti
 - Animated invitation and opening sequence with reduced-motion support
 - Responsive navigation, countdown and event schedule
 - Story sections, photo galleries and keyboard-friendly image viewing
-- Gift details interface using explicit non-financial placeholders
-- A demonstration-only RSVP section with no live form or widget
+- Gift ideas and an illustrated venue plan
+- An interactive RSVP preview with responses held only in page memory
 - Component-based React and TypeScript source, styled with Tailwind CSS
 
 ## Run locally
@@ -44,3 +44,9 @@ See [SECURITY.md](SECURITY.md) before adapting or deploying your own version. Al
 Run `npm run build` to regenerate `docs/`, then commit the updated output. In the repository's Pages settings, publish the `main` branch and `/docs` folder. This deployment is separate from the original personal site.
 
 `docs/.nojekyll` preserves the generated static files. The generated HTML includes a resource Content Security Policy and no-referrer policy. GitHub Pages does not apply the `_headers` file used by other hosts, so those host-specific HTTP header settings are not claimed here.
+
+## Demonstration content
+
+The public edition contains original fictional copy so visitors can explore a coherent example. Names, personal stories, locations and guest responses are invented. No real event, private photographs, production database, payment details or external RSVP service is connected.
+
+The RSVP component uses React state only: it previews the response in the current page without submitting or storing guest information. The venue plan is an illustration, not travel directions.

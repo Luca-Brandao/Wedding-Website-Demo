@@ -30,7 +30,7 @@ export function Venue({ venue }: { venue: WeddingData["venue"] }) {
     {
       icon: MapPin,
       label: "Address",
-      value: "Fictional demo venue - no real address"
+      value: venue.receptionAddress
     },
     {
       icon: Clock,
@@ -45,9 +45,9 @@ export function Venue({ venue }: { venue: WeddingData["venue"] }) {
     {
       icon: Shirt,
       label: "Dress Code",
-      value: "Formal",
+      value: "Garden formal",
       description:
-        "To maintain a beautiful, cohesive look for our special day, we ask guests to avoid wearing solid white, blue, or yellow."
+        "Dress up for a winter garden celebration. A jacket or wrap will be useful after sunset, and comfortable shoes are welcome."
     },
     {
       icon: Wine,
@@ -61,7 +61,7 @@ export function Venue({ venue }: { venue: WeddingData["venue"] }) {
       label: "Parking Information",
       value: "For Guests Who Are Driving",
       description:
-        "Please note that the venue provides secure on-site parking with dedicated security personnel."
+        venue.parking
     }
   ];
 
@@ -97,19 +97,18 @@ export function Venue({ venue }: { venue: WeddingData["venue"] }) {
           </div>
           <a
             href={mapsUrl}
-            target="_blank"
-            rel="noreferrer"
+            
             className="venue-feature__map-link"
           >
-            Demo venue <ExternalLink size={17} />
+            Explore the venue <ExternalLink size={17} />
           </a>
         </div>
-        <div className="venue-feature__images" aria-label="Sample Garden venue photos">
+        <div className="venue-feature__images" aria-label="Willowmere Garden Estate venue photos">
           <figure className="venue-feature__image venue-feature__image--ceremony">
-            <img src={ceremonyHall} alt="Sample Garden ceremony hall with white chairs and floral arch" loading="lazy" decoding="async" />
+            <img src={ceremonyHall} alt="Willowmere Garden Estate ceremony hall with white chairs and floral arch" loading="lazy" decoding="async" />
           </figure>
           <figure className="venue-feature__image venue-feature__image--reception">
-            <img src={receptionHall} alt="Sample Garden reception hall prepared for a wedding celebration" loading="lazy" decoding="async" />
+            <img src={receptionHall} alt="Willowmere Garden Estate reception hall prepared for a wedding celebration" loading="lazy" decoding="async" />
           </figure>
         </div>
         <div className="venue-feature__map">
@@ -121,11 +120,10 @@ export function Venue({ venue }: { venue: WeddingData["venue"] }) {
         </div>
         <a
           href={mapsUrl}
-          target="_blank"
-          rel="noreferrer"
+          
           className="venue-feature__map-link venue-feature__map-link--mobile"
         >
-          Demo venue <ExternalLink size={17} />
+          Explore the venue <ExternalLink size={17} />
         </a>
       </div>
     </SectionShell>

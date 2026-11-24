@@ -81,6 +81,7 @@ export default function WeddingApp() {
           <span style={{ transform: `scaleY(${Math.min(Math.max(scrollProgress, 0), 1)})` }} />
         </div>
         <main id="main-content">
+          <p className="fixed bottom-3 left-1/2 z-40 -translate-x-1/2 rounded-full bg-ink/90 px-4 py-2 text-center text-xs text-white shadow-soft">Portfolio demo · Fictional event · No bookings or payments</p>
           <Hero
             date={wedding.date}
             displayDate={wedding.displayDate}

@@ -1,85 +1,16 @@
-import { Check, Copy } from "lucide-react";
-import { useState } from "react";
+import { Coffee, Heart, Plane } from "lucide-react";
 import { SectionShell } from "../components/SectionShell";
 
-const details = {
-  Bank: "DEMONSTRATION ONLY",
-  "Account Holder": "Fictional Sample Couple",
-  "Account Number": "NOT-A-REAL-ACCOUNT",
-  "Branch Code": "NOT-APPLICABLE"
-};
+const wishes = [
+  { icon: Heart, title: "A memory to keep", text: "Bring a favourite photograph or a handwritten note for our memory box. We would love to hear your side of our story." },
+  { icon: Coffee, title: "Something for our table", text: "A much-loved recipe, a cookbook with a note inside, or a small piece for our first home together would mean the world." },
+  { icon: Plane, title: "Our next adventure", text: "We are dreaming of a honeymoon filled with coastal walks, little cafés and places we have never been. Your good wishes are the best send-off." }
+];
 
 export function Gifts() {
-  const [copied, setCopied] = useState("");
-
-  const writeClipboard = async (value: string) => {
-    if (navigator.clipboard?.writeText) {
-      try {
-        await navigator.clipboard.writeText(value);
-        return true;
-      } catch {
-        // Some mobile browsers expose the Clipboard API but block it outside
-        // stricter permission contexts, so fall back to a selected textarea.
-      }
-    }
-
-    const textarea = document.createElement("textarea");
-    textarea.value = value;
-    textarea.setAttribute("readonly", "");
-    textarea.style.position = "fixed";
-    textarea.style.top = "0";
-    textarea.style.left = "-9999px";
-    textarea.style.opacity = "0";
-    document.body.appendChild(textarea);
-    textarea.focus();
-    textarea.select();
-    textarea.setSelectionRange(0, value.length);
-
-    try {
-      return document.execCommand("copy");
-    } finally {
-      document.body.removeChild(textarea);
-    }
-  };
-
-  const copy = async (value: string, label: string) => {
-    const copiedSuccessfully = await writeClipboard(value);
-    setCopied(copiedSuccessfully ? label : "Copy unavailable");
-    window.setTimeout(() => setCopied(""), 2200);
-  };
-
-  return (
-    <SectionShell
-      id="gifts"
-      eyebrow="With Gratitude"
-      title="Gift Contributions - Demo"
-      intro="This is a user-interface demonstration. It contains no banking details and does not accept payments."
-      className="bg-powder/35"
-    >
-      <div className="mx-auto max-w-2xl rounded-[2rem] border border-powder bg-white p-6 shadow-soft sm:p-8">
-        <div className="grid gap-3">
-          {Object.entries(details).map(([label, value]) => (
-            <div key={label} className="flex items-center justify-between gap-4 rounded-2xl bg-petal/55 px-4 py-3">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.22em] text-gold">{label}</p>
-                <p className="mt-1 font-semibold text-ink">{value}</p>
-              </div>
-              {label === "Account Number" && (
-                <button className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-steel text-white" onClick={() => copy(value, label)} aria-label="Copy account number">
-                  <Copy size={17} />
-                </button>
-              )}
-            </div>
-          ))}
-        </div>
-        <button
-          className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-5 py-3 font-semibold text-ink shadow-glow transition hover:bg-petal"
-          onClick={() => copy(Object.entries(details).map(([label, value]) => `${label}: ${value}`).join("\n"), "All details")}
-        >
-          {copied === "Copy unavailable" ? <Copy size={18} /> : copied ? <Check size={18} /> : <Copy size={18} />}
-          {copied ? (copied === "Copy unavailable" ? copied : `${copied} copied`) : "Copy All Details"}
-        </button>
-      </div>
-    </SectionShell>
-  );
+  return <SectionShell id="gifts" eyebrow="With gratitude" title="Your presence is our favourite gift" intro="Celebrating with the people we love is all we could ask for. If you would still like to bring something, here are a few ideas close to our hearts." className="bg-powder/35">
+    <div className="grid gap-6 md:grid-cols-3">
+      {wishes.map(({icon: Icon, title, text}) => <article key={title} className="rounded-3xl border border-powder bg-white p-7 shadow-soft"><Icon className="mb-4 text-steel" size={28}/><h3 className="font-display text-2xl text-ink">{title}</h3><p className="mt-3 leading-relaxed text-ink/75">{text}</p></article>)}
+    </div>
+  </SectionShell>;
 }

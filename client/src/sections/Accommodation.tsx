@@ -40,7 +40,7 @@ export function Accommodation({ items }: { items: AccommodationType[] }) {
       id="accommodation"
       eyebrow="Nearby Stays"
       title="Accommodation"
-      intro="Fictional accommodation cards demonstrate the layout and responsive controls. No real booking services or contact details are connected."
+      intro="Stay a little longer and make a weekend of it. These nearby stays offer a comfortable place to unwind after the celebration."
       className="bg-linen"
     >
       <button
@@ -84,14 +84,14 @@ export function Accommodation({ items }: { items: AccommodationType[] }) {
                     </a>
                   ) : null}
                   <span className="accommodation-card__button accommodation-card__button--directions">
-                    Demonstration only
+                    Enquire before booking
                   </span>
                 </div>
               </div>
             </article>
           ))}
           <p className="accommodation-notice">
-            <strong>Please note:</strong> These venues are fictional examples for this portfolio demo.
+            <strong>Please note:</strong> The venues shown are fictional examples. Booking links are intentionally not connected in this portfolio edition.
           </p>
         </div>
       </div>
